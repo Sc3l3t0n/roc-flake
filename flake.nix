@@ -19,6 +19,15 @@
           default = self'.packages.roc;
           roc = import ./package.nix {inherit pkgs system;};
         };
+
+        devShells = {
+          update-current = pkgs.mkShell {
+            packages = [pkgs.curl pkgs.jq pkgs.nix];
+            shellHook = ''
+              echo "Use ./scripts/update-current.sh to update current.nix"
+            '';
+          };
+        };
       };
     };
 }
