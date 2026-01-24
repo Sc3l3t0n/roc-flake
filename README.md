@@ -29,6 +29,34 @@ To use this flake in your own Roc project, add it to your `flake.nix` inputs:
 
 This will provide the `roc` binary in your devshell.
 
+## Using the Overlay
+
+If you prefer to use an overlay to make `roc` available in `pkgs`, you can configure it like this:
+
+```nix
+{
+  inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    roc.url = "github:Sc3l3t0n/roc-flake";
+  };
+
+  outputs = { self, nixpkgs, roc, ... }:
+  let
+    system = "x86_64-linux";
+    pkgs = import nixpkgs {
+      inherit system;
+      overlays = [ roc.overlays.default ];
+    };
+  in {
+    devShells.${system}.default = pkgs.mkShell {
+      packages = [
+        pkgs.roc
+      ];
+    };
+  };
+}
+```
+
 ## Supported Systems
 
 This flake supports the following systems, matching the official Roc nightly releases:
