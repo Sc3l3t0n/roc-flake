@@ -14,66 +14,13 @@ nix flake init -t github:Sc3l3t0n/roc-flake
 
 This will generate a `flake.nix` configured to use the nightly compiler, along with a starter `main.roc` file.
 
-### Adding to an Existing Project
+### Flake Outputs
 
-To use this flake in an existing Roc project, add it to your `flake.nix` inputs:
+This flake provides:
+- `packages.${system}.default` (alias `roc`): The Roc compiler package.
+- `overlays.default`: An overlay to add `roc` to `nixpkgs`.
 
-```nix
-{
-  inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    roc.url = "github:Sc3l3t0n/roc-flake";
-  };
-
-  outputs = { self, nixpkgs, roc, ... }:
-  let
-    system = "x86_64-linux"; # Adjust for your system
-    pkgs = nixpkgs.legacyPackages.${system};
-  in {
-    devShells.${system}.default = pkgs.mkShell {
-      packages = [
-        roc.packages.${system}.default
-      ];
-    };
-  };
-}
-```
-
-Once configured, you can enter the development environment with:
-
-```bash
-nix develop
-```
-
-This provides the `roc` command in your shell.
-
-## Using the Overlay
-
-If you prefer to use an overlay to make `roc` available in `pkgs`, you can configure it like this:
-
-```nix
-{
-  inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    roc.url = "github:Sc3l3t0n/roc-flake";
-  };
-
-  outputs = { self, nixpkgs, roc, ... }:
-  let
-    system = "x86_64-linux";
-    pkgs = import nixpkgs {
-      inherit system;
-      overlays = [ roc.overlays.default ];
-    };
-  in {
-    devShells.${system}.default = pkgs.mkShell {
-      packages = [
-        pkgs.roc
-      ];
-    };
-  };
-}
-```
+Add `github:Sc3l3t0n/roc-flake` to your `inputs` to use them.
 
 ## Supported Systems
 
