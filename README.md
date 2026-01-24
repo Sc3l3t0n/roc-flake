@@ -4,7 +4,19 @@ This repository provides a Nix flake for easy access to the new Zig-based compil
 
 ## Usage
 
-To use this flake in your own Roc project, add it to your `flake.nix` inputs:
+### Creating a New Project
+
+To start a new Roc project using this flake, run the following command in an empty directory:
+
+```bash
+nix flake init -t github:Sc3l3t0n/roc-flake
+```
+
+This will generate a `flake.nix` configured to use the nightly compiler, along with a starter `main.roc` file.
+
+### Adding to an Existing Project
+
+To use this flake in an existing Roc project, add it to your `flake.nix` inputs:
 
 ```nix
 {
@@ -27,7 +39,13 @@ To use this flake in your own Roc project, add it to your `flake.nix` inputs:
 }
 ```
 
-This will provide the `roc` binary in your devshell.
+Once configured, you can enter the development environment with:
+
+```bash
+nix develop
+```
+
+This provides the `roc` command in your shell.
 
 ## Using the Overlay
 

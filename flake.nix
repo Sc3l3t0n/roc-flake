@@ -11,6 +11,14 @@
       imports = [
         flake-parts.flakeModules.easyOverlay
       ];
+      flake = {
+        templates = {
+          default = {
+            path = ./templates/default;
+            description = "A basic Roc project";
+          };
+        };
+      };
       systems = ["x86_64-linux" "aarch64-linux" "aarch64-darwin" "x86_64-darwin"];
       perSystem = {
         pkgs,
