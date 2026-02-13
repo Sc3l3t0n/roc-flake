@@ -1,10 +1,10 @@
 {
-  version = "nightly-2026-February-11-a34a6b6";
-  releaseNameVersion = "2026-02-11-a34a6b6";
+  version = "nightly-2026-February-12-3bcd92c";
+  releaseNameVersion = "2026-02-12-3bcd92c";
   hashes = {
-    "linux_arm64" = "sha256-trfcbiP5Z6DQKYNzYfJm3KP7m9/DC6Ig8+K53j/9Cz8=";
-    "linux_x86_64" = "sha256-19DllKgbz3eA6JaVOzGUxhBr4p6sm3t0XnYLvtPZhuI=";
-    "macos_apple_silicon" = "sha256-ILRRzCFP2A6jd+/hD7LvNPhhokSAmHDIlrCKkm9G2oU=";
-    "macos_x86_64" = "sha256-2OBk5JuZg5VGZqkabSGFsqYjScEPZknWSoCT3hBrjvo=";
+    "linux_arm64" = "sha256-3im5WaDY154FzpCfXf4uNRb20Rq3GE0i8sBg7vM65MQ=";
+    "linux_x86_64" = "sha256-oAIDMC2hSW2Z4zAjPoOYZNVrIUN4ltvde1HOsLM84bg=";
+    "macos_apple_silicon" = "sha256-t/Hbq6dQQWx0JBjtS7N5uUCt56JZRBG3+Ect/A+b944=";
+    "macos_x86_64" = "sha256-mo1mgYZ50yYc8s4i2KCbasUXpTXwiGE+VzaFNHT5SGg=";
   };
 }
